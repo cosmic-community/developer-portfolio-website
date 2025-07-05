@@ -1,3 +1,4 @@
+// components/SkillsSection.tsx
 import SkillBadge from '@/components/SkillBadge'
 import type { Skill } from '@/types'
 
@@ -21,7 +22,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
   }, {} as Record<string, Skill[]>)
 
   const categoryOrder = ['frontend', 'backend', 'database', 'ai_ml', 'tools']
-  const categoryLabels = {
+  const categoryLabels: Record<string, string> = {
     frontend: 'Frontend',
     backend: 'Backend',
     database: 'Database',

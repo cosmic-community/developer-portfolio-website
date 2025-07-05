@@ -1,3 +1,4 @@
+// components/SkillBadge.tsx
 import type { Skill } from '@/types'
 
 interface SkillBadgeProps {
@@ -15,7 +16,7 @@ export default function SkillBadge({ skill, size = 'md', showProficiency = false
     md: 'text-sm px-3 py-1'
   }
   
-  const categoryClasses = {
+  const categoryClasses: Record<string, string> = {
     frontend: 'skill-frontend',
     backend: 'skill-backend', 
     database: 'skill-database',
@@ -29,7 +30,7 @@ export default function SkillBadge({ skill, size = 'md', showProficiency = false
   )
 
   return (
-    <span className={`skill-badge ${categoryClasses[category]} ${sizeClasses[size]} inline-flex items-center`}>
+    <span className={`skill-badge ${categoryClasses[category] || categoryClasses.other} ${sizeClasses[size]} inline-flex items-center`}>
       {skill.metadata.name}
       {proficiencyIndicator}
       {showProficiency && skill.metadata.years_experience && (

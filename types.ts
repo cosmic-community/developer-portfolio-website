@@ -1,3 +1,4 @@
+// types.ts
 // Base Cosmic object interface
 interface CosmicObject {
   id: string;
@@ -124,5 +125,5 @@ export function isTestimonial(obj: CosmicObject): obj is Testimonial {
 }
 
 // Utility types for common patterns
-export type OptionalMetadata<T> = Partial<T['metadata']>;
+export type OptionalMetadata<T extends CosmicObject> = Partial<T['metadata']>;
 export type CreateProjectData = Omit<Project, 'id' | 'created_at' | 'modified_at'>;
